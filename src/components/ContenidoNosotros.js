@@ -4,29 +4,28 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-const TextoInicio = styled.div`
+const Contenido = styled.main`
     padding-top: 4rem;
     max-width: 1200px;
     width: 95%;
     margin: 0 auto;
-    margin-bottom: 7rem;
 
     @media (min-width: 768px) {
         display: grid;
-        grid-template-columns: repeat(2, 1fr) ;
-        column-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
     }
-
     p {
         line-height: 2;
+        margin-top: 2rem;
     }
 `;
 
-export const ContenidoInicio = () => {
+export const ContenidoNosotros = () => {
 
     const informacion = useStaticQuery(graphql`
         query {
-            allDatoCmsPagina(filter: {slug: {eq: "inicio"}}) {
+            allDatoCmsPagina(filter: {slug: {eq: "nosotros"}}) {
                 nodes {
                     titulo
                     contenido
@@ -42,7 +41,6 @@ export const ContenidoInicio = () => {
 
     return (
         <>
-
             <h2
                 css={css`
                     text-align: center;
@@ -51,10 +49,10 @@ export const ContenidoInicio = () => {
                 `}
             >{titulo}</h2>
 
-            <TextoInicio>
+            <Contenido>
                 <p>{contenido}</p>
                 <GatsbyImage image={imagen.gatsbyImageData} alt="inicio" />
-            </TextoInicio>
+            </Contenido>
 
         </>
     )
