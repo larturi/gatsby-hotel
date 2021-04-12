@@ -49,7 +49,11 @@ export const ContenidoNosotros = () => {
                 `}
             >{titulo}</h2>
 
-            <Contenido>
+            <Contenido
+                css={css`
+                    margin-bottom: 25rem;
+                 `}
+            >
                 <p>{contenido}</p>
                 <GatsbyImage image={imagen.gatsbyImageData} alt="inicio" />
             </Contenido>
